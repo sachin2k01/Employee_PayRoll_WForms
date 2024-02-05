@@ -71,7 +71,7 @@ namespace Employee_PayRoll_WebForms
                         sqlCommand.Parameters.AddWithValue("@Gender", Gender);
                         sqlCommand.Parameters.AddWithValue("@Department", Department);
                         sqlCommand.Parameters.AddWithValue("@Salary",decimal.Parse(eSalarytxt.Text));
-                        sqlCommand.Parameters.AddWithValue("@StartDate",eStartDatetxt.Text);
+                        sqlCommand.Parameters.AddWithValue("@StartDate", DateTime.Parse(eStartDatetxt.Text));
                         sqlCommand.Parameters.AddWithValue("@Notes", eNotesxt.Text);
                         sqlCommand.ExecuteNonQuery();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Employee created Successfully');", true);
@@ -104,6 +104,11 @@ namespace Employee_PayRoll_WebForms
         {
             eStartDatetxt.Text=Calender1.SelectedDate.ToString("dd/MM/yyyy");
             Calender1.Visible = false;
+        }
+
+        protected void Return_Login(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

@@ -83,6 +83,10 @@
             font-size: medium;
             background-color: #CCFFCC;
         }
+        .auto-style26 {
+            margin-top: 0px;
+            background-color: #66FF66;
+        }
     </style>
 </head>
 <body>
@@ -180,6 +184,7 @@
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style11">
                         <asp:Button ID="Create_Employee" runat="server" CssClass="auto-style10" Font-Bold="True" ForeColor="White" Height="47px" OnClick="Create_Employee_Click" Text="Create" Width="100px" />
+                        <asp:Button ID="logPagebtn" runat="server" CssClass="auto-style26" Height="45px" OnClick="Return_Login" Text="Login" Width="108px" />
                     </td>
                 </tr>
             </table>
