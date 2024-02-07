@@ -1,5 +1,3 @@
-C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.csproj.AssemblyReference.cache
-C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.csproj.CoreCompileInputs.cache
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Employee_PayRoll_WebForms.dll.config
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Employee_PayRoll_WebForms.dll
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Employee_PayRoll_WebForms.pdb
@@ -68,6 +66,8 @@ C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Newtons
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Antlr3.Runtime.pdb
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.csproj.CoreCompileInputs.cache
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.csproj.CopyComplete
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.dll
 C:\Users\Hp\source\repos\Employee_WebForms\Employee_PayRoll_WebForms\obj\Debug\Employee_PayRoll_WebForms.pdb

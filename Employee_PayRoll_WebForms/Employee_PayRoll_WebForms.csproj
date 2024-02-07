@@ -124,8 +124,9 @@
     <Content Include="Default.aspx" />
     <Content Include="Employee_Register.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="GetAllEmployee.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\calenderbtn.jpg" />
+    <AdditionalFiles Include="Images\calenderbtn.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="Employee_Register.aspx.designer.cs">
       <DependentUpon>Employee_Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllEmployee.aspx.cs">
+      <DependentUpon>GetAllEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetAllEmployee.aspx.designer.cs">
+      <DependentUpon>GetAllEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

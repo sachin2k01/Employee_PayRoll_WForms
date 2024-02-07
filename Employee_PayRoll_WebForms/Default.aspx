@@ -111,12 +111,40 @@
                 </td>
             </tr>
             <tr>
+                <td colspan="4" style="text-align:center; padding:20px; padding-left:30px; ">
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:GridView ID="EmployeeGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <Columns>
+                            <asp:BoundField DataField="EmployeeId" HeaderText="Employee ID" />
+                            <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
+                             <asp:TemplateField HeaderText="Image">
+                                 <ItemTemplate>
+                                     <asp:Image ID="imgEmployee" runat="server" ImageUrl='<%# Eval("ImagePath") %>' Height="65px" Width="65px" />
+                                 </ItemTemplate>
+
+                             </asp:TemplateField>
+                            <asp:BoundField DataField="Gender" HeaderText="Gender" />
+                            <asp:BoundField DataField="Department" HeaderText="Department" />
+                            <asp:BoundField DataField="Salary" HeaderText="Salary" />
+                            <asp:BoundField DataField="StartDate" HeaderText="Start Date" DataFormatString="{0:MM/dd/yyyy}" />
+                            <asp:BoundField DataField="Notes" HeaderText="Notes" />
+
+                        </Columns>
+                        <HeaderStyle BackColor="Navy" ForeColor="White" />
+                        <RowStyle BackColor="#E6E6FA" ForeColor="#333333" />
+
+                    </asp:GridView>
+                </td>
+            </tr>
+            <tr>
                 <td style="width: 92px">&nbsp;</td>
                 <td style="width: 217px">&nbsp;</td>
                 <td style="width: 341px">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
+            
         </table>
+
 
     </div>
 

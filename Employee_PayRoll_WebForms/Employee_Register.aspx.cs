@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,8 +32,21 @@ namespace Employee_PayRoll_WebForms
                         conn.Open();
                         SqlCommand sqlCommand = new SqlCommand("spCreateEmployee", conn);
                         sqlCommand.CommandType = CommandType.StoredProcedure;
-                        FileUpload.SaveAs(Server.MapPath("~/Images/") + System.IO.Path.GetFileName(FileUpload.FileName));
-                        string imgpath="Images/"+ System.IO.Path.GetFileName(FileUpload.FileName);
+
+                        string imgpath = null;
+                        string path = Server.MapPath("Images/");
+                        if (FileUpload.HasFile)
+                        {
+                            string filename=Path.GetFileName(FileUpload.FileName);
+                            string extention=Path.GetExtension(FileUpload.FileName);
+                            HttpPostedFile postedFile = FileUpload.PostedFile;
+                            int length = postedFile.ContentLength;
+                            if (extention.ToLower() == ".jpg" || extention.ToLower() == ".png" || extention.ToLower() == ".jpeg")
+                            {
+                                FileUpload.SaveAs(path + filename);
+                                imgpath = "Images/" + filename;
+                            }
+                        }
 
                         string Gender = string.Empty;
                         if(MaleCB.Checked)
@@ -76,7 +90,7 @@ namespace Employee_PayRoll_WebForms
                         sqlCommand.ExecuteNonQuery();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Employee created Successfully');", true);
                     }
-                    Response.Redirect("Default.aspx", false);
+                    Response.Redirect("Login.aspx", false);
                 }
             }
             catch (Exception)
