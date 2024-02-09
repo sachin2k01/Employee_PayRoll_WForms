@@ -25,8 +25,9 @@ namespace Employee_PayRoll_WebForms
         {
             try
             {
-                if(FileUpload.HasFile)
+                if (FileUpload.HasFile)
                 {
+
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
@@ -35,56 +36,27 @@ namespace Employee_PayRoll_WebForms
 
                         string imgpath = null;
                         string path = Server.MapPath("Images/");
-                        if (FileUpload.HasFile)
-                        {
-                            string filename=Path.GetFileName(FileUpload.FileName);
-                            string extention=Path.GetExtension(FileUpload.FileName);
-                            HttpPostedFile postedFile = FileUpload.PostedFile;
-                            int length = postedFile.ContentLength;
-                            if (extention.ToLower() == ".jpg" || extention.ToLower() == ".png" || extention.ToLower() == ".jpeg")
-                            {
-                                FileUpload.SaveAs(path + filename);
-                                imgpath = "Images/" + filename;
-                            }
-                        }
+                        string filename = Path.GetFileName(FileUpload.FileName);
+                        string extension = Path.GetExtension(FileUpload.FileName);
 
-                        string Gender = string.Empty;
-                        if(MaleCB.Checked)
+                        if (extension.ToLower() == ".jpg" || extension.ToLower() == ".png" || extension.ToLower() == ".jpeg")
                         {
-                            Gender = "Male";
-                        }
-                        else if(FemaleCB.Checked)
-                        {
-                            Gender = "Female";
+                            FileUpload.SaveAs(path + filename);
+                            imgpath = "Images/" + filename;
                         }
                         else
                         {
-                            Gender = null;
+                            return;
                         }
 
-                        string Department=string.Empty;
-                        if(ITcb.Checked)
-                        {
-                            Department = "IT";
-                        }
-                        else if(HRcb.Checked)
-                        {
-                            Department = "HR";
-                        }
-                        else if(otherscb.Checked)
-                        {
-                            Department = "Others";
-                        }
-                        else if(Financecb.Checked)
-                        {
-                            Department = "Finance";
-                        }
+                        string Gender = MaleCB.Checked ? "Male" : "Female";
+                        string Department = ITcb.Checked ? "IT" : HRcb.Checked ? "HR" : otherscb.Checked ? "Others" : "Finance";
 
                         sqlCommand.Parameters.AddWithValue("@EmployeeName", eNametxt.Text);
-                        sqlCommand.Parameters.AddWithValue("@ImagePath",imgpath);
+                        sqlCommand.Parameters.AddWithValue("@ImagePath", imgpath);
                         sqlCommand.Parameters.AddWithValue("@Gender", Gender);
                         sqlCommand.Parameters.AddWithValue("@Department", Department);
-                        sqlCommand.Parameters.AddWithValue("@Salary",decimal.Parse(eSalarytxt.Text));
+                        sqlCommand.Parameters.AddWithValue("@Salary", decimal.Parse(eSalarytxt.Text));
                         sqlCommand.Parameters.AddWithValue("@StartDate", DateTime.Parse(eStartDatetxt.Text));
                         sqlCommand.Parameters.AddWithValue("@Notes", eNotesxt.Text);
                         sqlCommand.ExecuteNonQuery();
@@ -93,26 +65,26 @@ namespace Employee_PayRoll_WebForms
                     Response.Redirect("Login.aspx", false);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Elable.Text = "An Error Occoured: " + ex.Message;
 
-                throw;
             }
-
         }
 
         protected void calenderButton_Click(object sender, ImageClickEventArgs e)
         {
-            if(Calender1.Visible)
+            if (Calender1.Visible)
             {
-                Calender1.Visible=false;
+                Calender1.Visible = false;
             }
             else
             {
                 Calender1.Visible = true;
+                Calender1.Style["position"] = "absolute";
             }
-            Calender1.Attributes.Add("style", "position:absolute");
         }
+
 
         protected void Calender1_SelectionChanged(object sender, EventArgs e)
         {
@@ -123,6 +95,18 @@ namespace Employee_PayRoll_WebForms
         protected void Return_Login(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(MaleCB.Checked ||FemaleCB.Checked)
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
         }
     }
 }

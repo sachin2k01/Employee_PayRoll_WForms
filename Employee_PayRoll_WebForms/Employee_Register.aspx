@@ -46,12 +46,8 @@
             height: 58px;
         }
         .auto-style16 {
-            height: 41px;
+            height: 42px;
             text-align: left;
-        }
-        .auto-style17 {
-            width: 264px;
-            height: 41px;
         }
         .auto-style18 {
             width: 264px;
@@ -76,6 +72,10 @@
              background-color:honeydew;
 
         }
+        form{
+            display:flex;
+            padding-left:320px;
+        }
         .auto-style24 {
             background-color: #CCFFCC;
         }
@@ -99,25 +99,34 @@
                 <tr>
                     <td class="auto-style3" colspan="2">
                         <h1>
+                           
+
                             <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Font-Bold="True" Font-Names="Segoe UI Black" Font-Size="X-Large" Text="Employee Registration"></asp:Label>
                         </h1>
+                         <asp:Label ID="Elable" runat="server" Text="" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style13"><strong>
                         <asp:Label ID="eName" runat="server" Text="Employee Name" CssClass="auto-style25" Font-Size="15pt"></asp:Label>
-                        </strong></td>
+                    </strong></td>
                     <td class="auto-style14">
                         <asp:TextBox ID="eNametxt" runat="server" Height="34px" Width="232px" placeholder="Full Name" CssClass="auto-style24"></asp:TextBox>
+                        
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="eNametxt" Display="Dynamic" ErrorMessage="Name is Required"></asp:RequiredFieldValidator>
+                        
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">
+                    <td class="auto-style6">
                         <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="15pt" Text="Gender" CssClass="auto-style24"></asp:Label>
                     </td>
                     <td class="auto-style16" rowspan="1">
                         <asp:RadioButton ID="MaleCB" runat="server" Font-Bold="True" Font-Size="Medium" Text="Male" GroupName="Gender" CssClass="auto-style24"/>
                         <asp:RadioButton ID="FemaleCB" runat="server" Font-Bold="True" Font-Size="Medium" Text="Female" GroupName="Gender" CssClass="auto-style24"/>
+                       
+
+                    &nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -129,6 +138,7 @@
 &nbsp;<strong><asp:RadioButton ID="HRcb" runat="server" Text="HR" GroupName="dep" CssClass="auto-style25"/>
                         </strong>&nbsp;<strong><asp:RadioButton ID="Financecb" runat="server" Text="Finance" GroupName="dep" CssClass="auto-style25"/>
                         </strong>&nbsp;<strong><asp:RadioButton ID="otherscb" runat="server" Text="Others" GroupName="dep" CssClass="auto-style25"/>
+
                         </strong>
                     </td>
                 </tr>
@@ -136,9 +146,12 @@
                     <td class="auto-style18">
                         <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Size="15pt" Text="Salary" CssClass="auto-style24"></asp:Label>
                     </td>
-                    <td class="auto-style19">
-                        <asp:TextBox ID="eSalarytxt" runat="server" Height="34px" Width="232px" placeholder="ex: 20000.00" CssClass="auto-style24"></asp:TextBox>
-                    </td>
+                   <td class="auto-style19">
+    <asp:TextBox ID="eSalarytxt" runat="server" Height="34px" Width="232px" placeholder="ex: 20000.00" CssClass="auto-style24"></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="eSalarytxt" ErrorMessage="Salary Required" ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RangeValidator ID="salary" runat="server" Style="color:red" ErrorMessage="Enter Salary" MinimumValue="10000.00" MaximumValue="500000.00" Type="Double" ControlToValidate="eSalarytxt"></asp:RangeValidator>
+</td>
+
                 </tr>
                 <tr>
                     <td class="auto-style20">
@@ -157,6 +170,7 @@
                             <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
                             <WeekendDayStyle BackColor="#FFFFCC" />
                         </asp:Calendar>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="eStartDatetxt" Display="Dynamic" ErrorMessage="Date is Required" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -166,6 +180,8 @@
                     <td class="auto-style21">
                         <strong>
                         <asp:FileUpload ID="FileUpload" runat="server" Height="33px" Width="293px" Font-Bold="True" Font-Size="Medium" CssClass="auto-style24" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="FileUpload" ErrorMessage="Select Image is Required" ForeColor="Red"></asp:RequiredFieldValidator>
+
                         </strong>
                     </td>
                 </tr>
@@ -175,6 +191,7 @@
                     </td>
                     <td class="auto-style11">
                         <asp:TextBox ID="eNotesxt" runat="server" Height="34px" Width="232px" placeholder="Notes...," CssClass="auto-style24"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="eNotesxt" ErrorMessage="Note is Required" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>

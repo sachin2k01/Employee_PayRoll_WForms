@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,7 +16,16 @@ namespace Employee_PayRoll_WebForms
         string connectionString = @"Data Source=DESKTOP-JJSV9PF\SQLEXPRESS;Initial Catalog=WF_EmployeeDb;Integrated Security=True;Encrypt=False";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(!IsPostBack)
+            {
+                HttpCookie cookie = Request.Cookies["User"];
+                if (cookie["userID"] != null || cookie["UserName"] != null)
+                {
+                    eIDtxt.Text = cookie["userID"];
+                    eNametxt.Text = cookie["UserName"];
+                }
+            }
+           
         }
 
         protected void Employee_Login(object sender, EventArgs e)
@@ -41,7 +51,22 @@ namespace Employee_PayRoll_WebForms
                             // Login successful, redirect to Default.aspx
                             Session["userId"] = empID;
                             Session["UserName"] = empName;
+                            
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Login Successfull..!!');", true);
+                            if (RememberCb.Checked)
+                            {
+                                HttpCookie cookie = new HttpCookie("User");
+                                cookie["userID"]=empID.ToString();
+                                cookie["UserName"] = empName;
+                                cookie.Expires = DateTime.Now.AddMinutes(2);
+                                Response.Cookies.Add(cookie);
+                            }
+                            else
+                            {
+                                Response.Cookies.Clear();
+                            }
                             Response.Redirect("Default.aspx");
+
                         }
                         else
                         {

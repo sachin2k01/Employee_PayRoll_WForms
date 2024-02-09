@@ -51,6 +51,16 @@
         .auto-style13 {
             height: 26px;
         }
+        .auto-style14 {
+            color: #FFFFFF;
+            font-size: medium;
+            background-color: #0000FF;
+        }
+        .auto-style15 {
+            color: #FFFFFF;
+            font-size: medium;
+            background-color: #009900;
+        }
     </style>
 </head>
 <body style="height: 316px">
@@ -69,7 +79,9 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="eIDtxt" runat="server" CssClass="auto-style7" Height="43px" Width="245px"></asp:TextBox>
                     </td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="eIDtxt" Display="Dynamic" ErrorMessage="Id is Required.." ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style10"></td>
@@ -79,7 +91,9 @@
                     <td class="auto-style12">
                         <asp:TextBox ID="eNametxt" runat="server" Height="42px" Width="244px"></asp:TextBox>
                     </td>
-                    <td class="auto-style10"></td>
+                    <td class="auto-style10">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="eNametxt" Display="Dynamic" ErrorMessage="Name is Required." ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style13"></td>
@@ -91,10 +105,14 @@
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style6">
-                        <asp:Button ID="Loginbtn" runat="server" Height="35px" OnClick="Employee_Login" Text="Login" Width="101px" />
+                        <strong>
+                        <asp:Button ID="Loginbtn" runat="server" Height="35px" OnClick="Employee_Login" Text="Login" Width="101px" CssClass="auto-style14" />
+                        </strong>
                     </td>
                     <td class="auto-style9">
-                        <asp:Button ID="Registerbtn" runat="server" Height="37px" OnClick="Employee_Register" Text="Register" Width="103px" />
+                        <strong>
+                        <asp:Button ID="Registerbtn" runat="server" Height="37px" OnClick="Employee_Register" Text="Register" Width="103px" CssClass="auto-style15" />
+                        </strong>
                     </td>
                     <td class="auto-style4"></td>
                 </tr>
